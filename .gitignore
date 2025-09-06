@@ -1,0 +1,43 @@
+# 🔧 Node dependencies
+**/node_modules/
+
+# 🧪 Testing
+**/coverage/
+
+# 🏗️ Build output
+frontend/build/
+backend/dist/
+
+# 🔐 Environment files
+**/.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# 🗑️ OS junk
+.DS_Store
+Thumbs.db
+
+# 🧠 IDE junk
+.vscode/
+.idea/
+
+# 🧱 SQLite DB
+backend/*.db
+
+# 🧾 Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ⚛️ React-specific caches
+frontend/.parcel-cache/
+frontend/.next/
+frontend/.turbo/
+frontend/.eslintcache
+
+# 🧪 Misc
+*.swp
+*~
