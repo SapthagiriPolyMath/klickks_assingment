@@ -5,16 +5,33 @@ const cors = require('cors');
 const authRoutes = require('./routes/auth');
 
 const app = express();
-app.use(cors({ origin: 'https://klickks-assingment.vercel.app', credentials: true }));
+
+// ✅ Trust proxy for secure cookies on Render
+app.set('trust proxy', 1);
+
+// ✅ CORS setup
+app.use(cors({
+  origin: 'https://klickks-assingment.vercel.app',
+  credentials: true,
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
+// ✅ Handle preflight requests explicitly
+app.options('*', cors({
+  origin: 'https://klickks-assingment.vercel.app',
+  credentials: true
+}));
+
 app.use(express.json());
 app.use(cookieParser());
-app.set('trust proxy', 1); // ✅ required for secure cookies on Render
+
 app.use(session({
   secret: 'secret-key',
   resave: false,
   saveUninitialized: false,
-  cookie: { 
-    secure: true,         // ✅ ensures cookies only sent over HTTPS
+  cookie: {
+    secure: true,
     sameSite: 'none'
   }
 }));
