@@ -6,7 +6,7 @@ export default function ProtectedRoute({ children }) {
   const [isAuthenticated, setIsAuthenticated] = useState(null);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/session', { withCredentials: true })
+    axios.get('https://klickks-assingment.onrender.com/api/session', { withCredentials: true })
       .then(() => setIsAuthenticated(true))
       .catch(() => setIsAuthenticated(false));
   }, []);

@@ -24,7 +24,7 @@ export default function Login() {
 
   // 🔒 Redirect to dashboard if session already exists
   useEffect(() => {
-    axios.get('http://localhost:5000/api/session', { withCredentials: true })
+    axios.get('https://klickks-assingment.onrender.com/api/session', { withCredentials: true })
       .then(() => {
         nav('/dashboard');
       })
@@ -37,7 +37,7 @@ export default function Login() {
     setLoading(true);
     try {
       await axios.post(
-        'http://localhost:5000/api/login',
+        'https://klickks-assingment.onrender.com/api/login',
         { email, password },
         { withCredentials: true }
       );

@@ -53,7 +53,7 @@ const handleRegister = async () => {
 
   setLoading(true);
   try {
-    await axios.post('http://localhost:5000/api/register', {
+    await axios.post('https://klickks-assingment.onrender.com/api/register', {
       email,
       password,
       username,

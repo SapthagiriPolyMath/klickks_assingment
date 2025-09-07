@@ -22,7 +22,7 @@ export default function Dashboard() {
     console.log('Confirmation result:', result); // ✅ Confirm dialog
     if (result) {
       try {
-        await axios.get('http://localhost:5000/api/logout', { withCredentials: true });
+        await axios.get('https://klickks-assingment.onrender.com/api/logout', { withCredentials: true });
         nav('/login');
       } catch (err) {
         console.error('Logout failed:', err);
@@ -31,7 +31,7 @@ export default function Dashboard() {
   };
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/dashboard', { withCredentials: true })
+    axios.get('https://klickks-assingment.onrender.com/api/dashboard', { withCredentials: true })
       .then(res => setMessage(res.data.message))
       .catch(() => setMessage('Unauthorized'));
   }, []);
