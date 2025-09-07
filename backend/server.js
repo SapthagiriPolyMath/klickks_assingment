@@ -9,19 +9,19 @@ const app = express();
 // ✅ Trust proxy for secure cookies on Render
 app.set('trust proxy', 1);
 
-// ✅ CORS setup
-app.use(cors({
+// ✅ Unified CORS options
+const corsOptions = {
   origin: 'https://klickks-assingment.vercel.app',
   credentials: true,
   methods: ['GET', 'POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type']
-}));
+};
 
-app.options('*', cors({
-  origin: 'https://klickks-assingment.vercel.app',
-  credentials: true
-}));
+// ✅ Apply CORS globally
+app.use(cors(corsOptions));
 
+// ✅ Handle preflight requests for all routes
+app.options('/*', cors(corsOptions));
 
 app.use(express.json());
 app.use(cookieParser());
