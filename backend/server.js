@@ -8,6 +8,7 @@ const app = express();
 app.use(cors({ origin: 'https://klickks-assingment.vercel.app', credentials: true }));
 app.use(express.json());
 app.use(cookieParser());
+app.set('trust proxy', 1); // ✅ required for secure cookies on Render
 app.use(session({
   secret: 'secret-key',
   resave: false,
