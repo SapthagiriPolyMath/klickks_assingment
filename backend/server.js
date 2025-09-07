@@ -14,14 +14,14 @@ app.use(cors({
   origin: 'https://klickks-assingment.vercel.app',
   credentials: true,
   methods: ['GET', 'POST', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  allowedHeaders: ['Content-Type']
 }));
 
-// ✅ Handle preflight requests explicitly
 app.options('*', cors({
   origin: 'https://klickks-assingment.vercel.app',
   credentials: true
 }));
+
 
 app.use(express.json());
 app.use(cookieParser());

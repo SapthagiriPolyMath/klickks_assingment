@@ -44,14 +44,15 @@ router.post('/login', (req, res) => {
     if (!match) return res.status(401).json({ error: 'Invalid credentials' });
 
     req.session.user = user;
+
+    // ✅ Force session save before responding
     req.session.save(err => {
       if (err) {
         console.error('Session save error:', err);
         return res.status(500).json({ error: 'Session error' });
       }
       res.json({ message: 'Logged in' });
-    });    
-    res.json({ message: 'Logged in' });
+    });
   });
 });
 
