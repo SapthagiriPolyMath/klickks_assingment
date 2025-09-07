@@ -23,5 +23,5 @@ This is a full-stack web application built for the Klickks assignment. It featur
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/<your-username>/<your-repo-name>.git
-cd <your-repo-name>
+git clone https://github.com/SapthagiriPolyMath/klickks_assingment
+cd klickks_assingment

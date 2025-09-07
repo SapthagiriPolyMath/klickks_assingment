@@ -12,7 +12,10 @@ app.use(session({
   secret: 'secret-key',
   resave: false,
   saveUninitialized: false,
-  cookie: { secure: false }
+  cookie: { 
+    secure: true,         // ✅ ensures cookies only sent over HTTPS
+    sameSite: 'none'
+  }
 }));
 
 app.use('/api', authRoutes);
