@@ -81,6 +81,7 @@ const handleRegister = async () => {
               value={username}
               onChange={e => setUsername(e.target.value.trim())}
               placeholder="Username"
+              autocomplete="username"
             />
         </InputContainer>
         <InputContainer>
@@ -91,6 +92,7 @@ const handleRegister = async () => {
             value={email}
             onChange={e => setEmail(e.target.value)}
             placeholder="Email"
+            autocomplete="email"
           />
         </InputContainer>
         <InputContainer>
@@ -101,6 +103,7 @@ const handleRegister = async () => {
             value={password}
             onChange={e => setPassword(e.target.value)}
             placeholder="Password"
+            autocomplete="new-password"
           />
         </InputContainer>
         <LoginButton onClick={handleRegister} disabled={loading}>
