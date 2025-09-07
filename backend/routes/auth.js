@@ -44,6 +44,13 @@ router.post('/login', (req, res) => {
     if (!match) return res.status(401).json({ error: 'Invalid credentials' });
 
     req.session.user = user;
+    req.session.save(err => {
+      if (err) {
+        console.error('Session save error:', err);
+        return res.status(500).json({ error: 'Session error' });
+      }
+      res.json({ message: 'Logged in' });
+    });    
     res.json({ message: 'Logged in' });
   });
 });
@@ -68,6 +75,7 @@ router.get('/dashboard', (req, res) => {
 router.get('/session', (req, res) => {
   if (req.session.user) {
     res.json({ loggedIn: true });
+    console.log('Session check:', req.session);
   } else {
     res.status(401).json({ loggedIn: false });
   }
